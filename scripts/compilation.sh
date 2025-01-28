@@ -113,7 +113,7 @@ compile_atf()
 compile_uboot()
 {
 
-	if [[ ${BOARDFAMILY} == "sun50iw9" && ${BRANCH} =~ legacy|current ]]; then
+	if [[ ${BOARDFAMILY} == "sun50iw9" && ${BRANCH} =~ legacy|current && $(dpkg --print-architecture) == buxdehude ]]; then
 
 		local uboot_name=${CHOSEN_UBOOT}_${REVISION}_${ARCH}.deb
 		display_alert "Compile u-boot is not supported, only copy precompiled deb package" "$uboot_name" "info"
